@@ -9,6 +9,14 @@ from rest_framework.response import Response
 from rest_framework import status, generics, mixins, viewsets
 
 
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    
+
+
+
+'''
 class ArticleViewSet(viewsets.ViewSet):
 
     def list(self, request):
@@ -45,7 +53,6 @@ class ArticleViewSet(viewsets.ViewSet):
 
 
 
-'''
 class ArticleList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
